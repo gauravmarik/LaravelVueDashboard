@@ -19,6 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Demo Route -
 // Route::get('/admin/dashboard', function(){
 //     return view('dashboard');
 // });
