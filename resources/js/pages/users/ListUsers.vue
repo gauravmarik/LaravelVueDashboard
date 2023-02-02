@@ -159,10 +159,18 @@ onMounted(() => {
                                 <td>{{ user.created_at }}</td>
                                 <td>{{ user.role }}</td>
                                 <td>
-                                    <a href="#" @click.prevent="editUser(user)"><i class="fa fa-edit"></i></a>
-                                    <a href="#" @click.prevent="
-                                        confirmUserDeletion(user)
-                                    "><i class="fa fa-trash text-danger ml-4"></i></a>
+                                    <a href="#" @click.prevent="editUser(user)"
+                                        ><i class="fa fa-edit"></i
+                                    ></a>
+                                    <a
+                                        href="#"
+                                        @click.prevent="
+                                            confirmUserDeletion(user)
+                                        "
+                                        ><i
+                                            class="fa fa-trash text-danger ml-4"
+                                        ></i
+                                    ></a>
                                 </td>
                             </tr>
                         </tbody>
@@ -172,8 +180,15 @@ onMounted(() => {
         </div>
     </div>
 
-    <div class="modal fade" id="userFormModal" data-backdrop="static" tabindex="-1" role="dialog"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div
+        class="modal fade"
+        id="userFormModal"
+        data-backdrop="static"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+    >
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -181,19 +196,37 @@ onMounted(() => {
                         <span v-if="editing">Edit User</span>
                         <span v-else>Add New User</span>
                     </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                    >
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <Form ref="form" @submit="handleSubmit" :validation-schema="
-                    editing ? editUserSchema : createUserSchema
-                " v-slot="{ errors }" :initial-values="formValues">
+                <Form
+                    ref="form"
+                    @submit="handleSubmit"
+                    :validation-schema="
+                        editing ? editUserSchema : createUserSchema
+                    "
+                    v-slot="{ errors }"
+                    :initial-values="formValues"
+                >
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <Field name="name" type="text" class="form-control" :class="{ 'is-invalid': errors.name }"
-                                id="name" aria-describedby="nameHelp" placeholder="Enter full name" />
+                            <Field
+                                name="name"
+                                type="text"
+                                class="form-control"
+                                :class="{ 'is-invalid': errors.name }"
+                                id="name"
+                                aria-describedby="nameHelp"
+                                placeholder="Enter full name"
+                            />
                             <span class="invalid-feedback">{{
                                 errors.name
                             }}</span>
@@ -201,25 +234,41 @@ onMounted(() => {
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <Field name="email" type="email" class="form-control"
-                                :class="{ 'is-invalid': errors.email }" id="email" aria-describedby="nameHelp"
-                                placeholder="Enter full name" />
+                            <Field
+                                name="email"
+                                type="email"
+                                class="form-control"
+                                :class="{ 'is-invalid': errors.email }"
+                                id="email"
+                                aria-describedby="nameHelp"
+                                placeholder="Enter full name"
+                            />
                             <span class="invalid-feedback">{{
                                 errors.email
                             }}</span>
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <Field name="password" type="password" class="form-control"
-                                :class="{ 'is-invalid': errors.password }" id="password" aria-describedby="nameHelp"
-                                placeholder="Enter password" />
+                            <Field
+                                name="password"
+                                type="password"
+                                class="form-control"
+                                :class="{ 'is-invalid': errors.password }"
+                                id="password"
+                                aria-describedby="nameHelp"
+                                placeholder="Enter password"
+                            />
                             <span class="invalid-feedback">{{
                                 errors.password
                             }}</span>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-dismiss="modal"
+                        >
                             Cancel
                         </button>
                         <button type="submit" class="btn btn-primary">
@@ -231,15 +280,26 @@ onMounted(() => {
         </div>
     </div>
 
-    <div class="modal fade" id="deleteUserModal" data-backdrop="static" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div
+        class="modal fade"
+        id="deleteUserModal"
+        data-backdrop="static"
+        tabindex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+    >
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="staticBackdropLabel">
                         <span>Delete User</span>
                     </h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                    >
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -249,10 +309,18 @@ onMounted(() => {
                 </div>
 
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                    >
                         Cancel
                     </button>
-                    <button @click.prevent="deleteUser" type="button" class="btn btn-primary">
+                    <button
+                        @click.prevent="deleteUser"
+                        type="button"
+                        class="btn btn-primary"
+                    >
                         Delete User
                     </button>
                 </div>
